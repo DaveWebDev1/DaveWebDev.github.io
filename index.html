@@ -3,19 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="David Ramirez - Computer Science major and freelance web developer portfolio. View projects, learn more, and get in touch!">
+  <meta name="keywords" content="web developer, portfolio, freelance, computer science, David Ramirez">
+  <meta name="author" content="David Ramirez">
   <title>David's Web Dev Portfolio</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: #f9f9f9;
       color: #333;
     }
+    nav {
+      background: #007acc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav .logo {
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    nav a {
+      color: white;
+      margin-left: 15px;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
     header {
       background: #007acc;
       color: white;
       padding: 60px 20px;
       text-align: center;
+      animation: fadeIn 1s ease-in;
     }
     header h1 {
       font-size: 2.5rem;
@@ -35,6 +65,7 @@
     section {
       padding: 30px 0;
       border-bottom: 1px solid #eee;
+      animation: slideUp 0.8s ease;
     }
     section:last-child {
       border-bottom: none;
@@ -62,9 +93,34 @@
       color: #999;
       margin: 40px 0;
     }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav a {
+        margin: 5px 0 0 0;
+      }
+    }
   </style>
 </head>
 <body>
+  <nav>
+    <div class="logo">David Ramirez</div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
   <header>
     <h1>David Ramirez</h1>
     <p>Computer Science Major & Freelance Web Developer</p>
@@ -74,23 +130,21 @@
       <h2>About Me</h2>
       <p>I’m a computer science major with a passion for clean code and user-friendly websites. I focus on responsive design, performance optimization, and intuitive user experiences.</p>
     </section>
-
     <section id="projects">
       <h2>Projects</h2>
       <div class="project">
         <strong>Gym Landing Page</strong><br />
-        <a href="#">View Project</a>
+        <a href="#" target="_blank">View Project</a>
       </div>
       <div class="project">
         <strong>Responsive Gallery</strong><br />
-        <a href="#">View Project</a>
+        <a href="#" target="_blank">View Project</a>
       </div>
       <div class="project">
         <strong>JavaScript Weather App</strong><br />
-        <a href="#">View Project</a>
+        <a href="#" target="_blank">View Project</a>
       </div>
     </section>
-
     <section id="contact">
       <h2>Contact</h2>
       <p>Interested in working together or want to say hi? Reach out at <a href="mailto:DavidwebDev01@gmail.com">DavidwebDev01@gmail.com</a></p>
