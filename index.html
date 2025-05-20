@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="David Ramirez - Computer Science major and freelance web developer portfolio. View projects, learn more, and get in touch!">
-  <meta name="keywords" content="web developer, portfolio, freelance, computer science, David Ramirez">
+  <meta name="description" content="DaveWebDev - Computer Science major and freelance web developer portfolio. View projects, learn more, and get in touch!">
+  <meta name="keywords" content="web developer, portfolio, freelance, computer science, DaveWebDev">
   <meta name="author" content="David Ramirez">
-  <title>David's Web Dev Portfolio</title>
+  <title>DaveWebDev Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -18,80 +17,127 @@
       color: #333;
     }
     nav {
-      background: #007acc;
+      background: #1e1e2f;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
+      padding: 12px 24px;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
     nav .logo {
-      color: white;
+      font-family: 'Courier New', monospace;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+      color: #00b4d8;
     }
-    nav a {
+    nav .links {
+      display: flex;
+      gap: 20px;
+    }
+    nav .links .dropdown {
+      position: relative;
+    }
+    nav .links .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    nav .links a {
       color: white;
-      margin-left: 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease-in-out;
+      padding: 10px;
+    }
+    nav .links a:hover {
+      color: #00b4d8;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #2a2a3d;
+      min-width: 200px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 999;
+      flex-direction: column;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      color: white;
       text-decoration: none;
     }
-    nav a:hover {
-      text-decoration: underline;
+    .dropdown-content a:hover {
+      background-color: #3b3b50;
     }
     header {
-      background: #007acc;
+      background: linear-gradient(to right, #007acc, #005fa3);
       color: white;
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
       animation: fadeIn 1s ease-in;
     }
     header h1 {
-      font-size: 2.5rem;
-      margin: 0;
+      font-size: 3rem;
+      margin-bottom: 10px;
     }
     header p {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
+      opacity: 0.9;
     }
     main {
-      max-width: 900px;
-      margin: 40px auto;
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 60px auto;
       padding: 0 20px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      gap: 20px;
     }
     section {
-      padding: 30px 0;
-      border-bottom: 1px solid #eee;
+      flex: 1 1 45%;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      padding: 40px 30px;
       animation: slideUp 0.8s ease;
     }
-    section:last-child {
-      border-bottom: none;
+    #projects {
+      order: -1;
     }
     h2 {
       color: #007acc;
-      margin-bottom: 10px;
+      margin-bottom: 16px;
+      font-size: 1.75rem;
     }
-    ul {
-      padding-left: 20px;
+    .project {
+      margin-bottom: 20px;
+    }
+    .project strong {
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .project i {
+      margin-right: 8px;
+      color: #007acc;
     }
     a {
       color: #007acc;
       text-decoration: none;
+      font-weight: 500;
     }
     a:hover {
       text-decoration: underline;
     }
-    .project {
-      margin-bottom: 15px;
-    }
     footer {
       text-align: center;
       font-size: 0.9rem;
-      color: #999;
-      margin: 40px 0;
+      color: #666;
+      margin: 60px 0 30px;
+      width: 100%;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
@@ -101,24 +147,49 @@
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       nav {
         flex-direction: column;
         align-items: flex-start;
       }
-      nav a {
-        margin: 5px 0 0 0;
+      nav .links {
+        flex-direction: column;
+        width: 100%;
+      }
+      main {
+        flex-direction: column;
+      }
+      section {
+        flex: 1 1 100%;
       }
     }
   </style>
 </head>
 <body>
   <nav>
-    <div class="logo">David Ramirez</div>
-    <div>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+    <div class="logo">DaveWebDev</div>
+    <div class="links">
+      <div class="dropdown">
+        <a href="#about">About</a>
+        <div class="dropdown-content">
+          <a href="#about">My Background</a>
+          <a href="#about">Philosophy</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#projects">Projects</a>
+        <div class="dropdown-content">
+          <a href="#projects">Sample Product Page</a>
+          <a href="#projects">Sample Landing Page</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#contact">Contact</a>
+        <div class="dropdown-content">
+          <a href="#contact">Sample Contact Page</a>
+          <a href="#contact">Reach Out</a>
+        </div>
+      </div>
     </div>
   </nav>
   <header>
@@ -126,24 +197,24 @@
     <p>Computer Science Major & Freelance Web Developer</p>
   </header>
   <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I’m a computer science major with a passion for clean code and user-friendly websites. I focus on responsive design, performance optimization, and intuitive user experiences.</p>
-    </section>
     <section id="projects">
       <h2>Projects</h2>
       <div class="project">
-        <strong>Gym Landing Page</strong><br />
+        <strong><i class="fas fa-dumbbell"></i> Gym Landing Page</strong>
         <a href="#" target="_blank">View Project</a>
       </div>
       <div class="project">
-        <strong>Responsive Gallery</strong><br />
+        <strong><i class="fas fa-images"></i> Responsive Gallery</strong>
         <a href="#" target="_blank">View Project</a>
       </div>
       <div class="project">
-        <strong>JavaScript Weather App</strong><br />
+        <strong><i class="fas fa-cloud-sun"></i> JavaScript Weather App</strong>
         <a href="#" target="_blank">View Project</a>
       </div>
+    </section>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I’m a computer science major with a passion for clean code and user-friendly websites. I focus on responsive design, performance optimization, and intuitive user experiences.</p>
     </section>
     <section id="contact">
       <h2>Contact</h2>
@@ -151,7 +222,7 @@
     </section>
   </main>
   <footer>
-    &copy; 2025 David Ramirez. All rights reserved.
+    &copy; 2025 DaveWebDev. All rights reserved.
   </footer>
 </body>
 </html>
